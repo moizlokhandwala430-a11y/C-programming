@@ -1,0 +1,55 @@
+
+#include <stdio.h>
+
+int main()
+{
+    char Name[50], UIN[20];
+    float Physics, Chemistry, Mathematics, Average, TotalMarks;
+
+    printf("Enter your name:\n");
+    scanf(" %[^\n]", Name);
+
+    printf("Enter UIN:\n");
+    scanf("%s", UIN);
+
+    printf("Enter Physics marks:\n");
+    scanf("%f", &Physics);
+
+    printf("Enter Chemistry marks:\n");
+    scanf("%f", &Chemistry);
+
+    printf("Enter Mathematics marks:\n");
+    scanf("%f", &Mathematics);
+
+    // Marks validation
+    if (Physics < 0 || Physics > 100 ||
+        Chemistry < 0 || Chemistry > 100 ||
+        Mathematics < 0 || Mathematics > 100)
+    {
+        printf("Error: Enter marks between 0 and 100.\n");
+        return 1;
+    }
+
+    // Calculation
+    TotalMarks = Physics + Chemistry + Mathematics;
+    Average = TotalMarks / 3;
+
+    // Display results
+    printf("\n========== STUDENT RESULT ==========\n");
+    printf("Name: %s\n", Name);
+    printf("UIN: %s\n", UIN);
+    printf("Total Marks: %.2f/300\n", TotalMarks);
+    printf("Average: %.2f\n", Average);
+
+    // Admission eligibility
+    if (Average >= 50)
+    {
+        printf("Eligible for admission.\n");
+    }
+    else
+    {
+        printf("Not Eligible for admission.\n");
+    }
+
+    return 0;
+}
